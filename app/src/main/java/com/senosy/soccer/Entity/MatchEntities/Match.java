@@ -4,6 +4,8 @@ package com.senosy.soccer.Entity.MatchEntities;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class Match {
 
     @SerializedName("competition_id")
@@ -238,4 +240,36 @@ public class Match {
         this.scheduled = scheduled;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Match match = (Match) o;
+        return competitionId == match.competitionId &&
+                id == match.id &&
+                awayId == match.awayId &&
+                homeId == match.homeId &&
+                leagueId == match.leagueId &&
+                fixtureId == match.fixtureId &&
+                Objects.equals(status, match.status) &&
+                Objects.equals(htScore, match.htScore) &&
+                Objects.equals(ftScore, match.ftScore) &&
+                Objects.equals(etScore, match.etScore) &&
+                Objects.equals(lastChanged, match.lastChanged) &&
+                Objects.equals(leagueName, match.leagueName) &&
+                Objects.equals(score, match.score) &&
+                Objects.equals(competitionName, match.competitionName) &&
+                Objects.equals(events, match.events) &&
+                Objects.equals(awayName, match.awayName) &&
+                Objects.equals(added, match.added) &&
+                Objects.equals(time, match.time) &&
+                Objects.equals(homeName, match.homeName) &&
+                Objects.equals(location, match.location) &&
+                Objects.equals(scheduled, match.scheduled);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(competitionId, status, htScore, ftScore, etScore, lastChanged, id, leagueName, awayId, score, competitionName, events, homeId, awayName, added, time, homeName, leagueId, location, fixtureId, scheduled);
+    }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/matchFragment"
+        android:icon="@android:drawable/btn_star_big_on"
+        app:showAsAction="always"
+        android:title="Match" />
+    <item
+        android:id="@+id/videoFragment"
+        android:icon="@android:drawable/presence_video_online"
+        app:showAsAction="always"
+        android:title="Videos" />
+</menu>

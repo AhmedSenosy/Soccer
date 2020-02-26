@@ -12,11 +12,11 @@ import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public abstract class NetworkLayer {
+public class NetworkLayer {
     RestApi api = RetrofitInstance.getRetrofitInstance().create(RestApi.class);
 
-    public Single<List<MatchResponseEntity>> getMatches(){
-        return api.getMatches(PublicKeys.API_KEY,PublicKeys.API_SECRET)
+    public Single<MatchResponseEntity> getMatches(int page){
+        return api.getMatches(PublicKeys.API_KEY,PublicKeys.API_SECRET,page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
