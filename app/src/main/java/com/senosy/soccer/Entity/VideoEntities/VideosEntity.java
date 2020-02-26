@@ -2,6 +2,8 @@
 package com.senosy.soccer.Entity.VideoEntities;
 
 import java.util.List;
+import java.util.Objects;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -107,4 +109,24 @@ public class VideosEntity {
         this.videos = videos;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VideosEntity that = (VideosEntity) o;
+        return Objects.equals(title, that.title) &&
+                Objects.equals(embed, that.embed) &&
+                Objects.equals(url, that.url) &&
+                Objects.equals(thumbnail, that.thumbnail) &&
+                Objects.equals(date, that.date) &&
+                Objects.equals(side1, that.side1) &&
+                Objects.equals(side2, that.side2) &&
+                Objects.equals(competition, that.competition) &&
+                Objects.equals(videos, that.videos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, embed, url, thumbnail, date, side1, side2, competition, videos);
+    }
 }
